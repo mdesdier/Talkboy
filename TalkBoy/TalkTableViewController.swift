@@ -75,25 +75,34 @@ class TalkTableViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true) //we deselect row to remove gray background
     }
-    /*
+    
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            // tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+                let sound = sounds[indexPath.row]
+                context.delete(sound)
+                getSounds() //get sounds from core data into our local array so the deleted item is gone from array too.  BTW getSounds does a reloadData so no need to add another here.
+                
+            }
+            print("ask to delete")
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+   
 
     /*
     // Override to support rearranging the table view.
