@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		309E5B7F21A2A0DB00328A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E5B7E21A2A0DB00328A86 /* AppDelegate.swift */; };
-		309E5B8121A2A0DB00328A86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E5B8021A2A0DB00328A86 /* ViewController.swift */; };
 		309E5B8421A2A0DB00328A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309E5B8221A2A0DB00328A86 /* Main.storyboard */; };
 		309E5B8721A2A0DB00328A86 /* TalkBoy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 309E5B8521A2A0DB00328A86 /* TalkBoy.xcdatamodeld */; };
 		309E5B8921A2A0DD00328A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309E5B8821A2A0DD00328A86 /* Assets.xcassets */; };
 		309E5B8C21A2A0DD00328A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309E5B8A21A2A0DD00328A86 /* LaunchScreen.storyboard */; };
+		309E5B9421A3AC3000328A86 /* TalkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E5B9321A3AC3000328A86 /* TalkTableViewController.swift */; };
+		309E5B9621A3AC9600328A86 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E5B9521A3AC9600328A86 /* RecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		309E5B7B21A2A0DB00328A86 /* TalkBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		309E5B7E21A2A0DB00328A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		309E5B8021A2A0DB00328A86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		309E5B8321A2A0DB00328A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		309E5B8621A2A0DB00328A86 /* TalkBoy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TalkBoy.xcdatamodel; sourceTree = "<group>"; };
 		309E5B8821A2A0DD00328A86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309E5B8B21A2A0DD00328A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		309E5B8D21A2A0DD00328A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		309E5B9321A3AC3000328A86 /* TalkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTableViewController.swift; sourceTree = "<group>"; };
+		309E5B9521A3AC9600328A86 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				309E5B7E21A2A0DB00328A86 /* AppDelegate.swift */,
-				309E5B8021A2A0DB00328A86 /* ViewController.swift */,
+				309E5B9321A3AC3000328A86 /* TalkTableViewController.swift */,
+				309E5B9521A3AC9600328A86 /* RecordViewController.swift */,
 				309E5B8221A2A0DB00328A86 /* Main.storyboard */,
 				309E5B8821A2A0DD00328A86 /* Assets.xcassets */,
 				309E5B8A21A2A0DD00328A86 /* LaunchScreen.storyboard */,
@@ -138,9 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				309E5B8121A2A0DB00328A86 /* ViewController.swift in Sources */,
 				309E5B8721A2A0DB00328A86 /* TalkBoy.xcdatamodeld in Sources */,
 				309E5B7F21A2A0DB00328A86 /* AppDelegate.swift in Sources */,
+				309E5B9421A3AC3000328A86 /* TalkTableViewController.swift in Sources */,
+				309E5B9621A3AC9600328A86 /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
