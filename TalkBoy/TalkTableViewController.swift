@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TalkTableViewController: UITableViewController {
 
+    var sounds : [Sound] = []
+    var audioPlayer : AVAudioPlayer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,26 +27,54 @@ class TalkTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+   // override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    //    return 0
+   // }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sounds.count
     }
 
-    /*
+    //added since we want to get items (sounds) into cells when view ill appear
+    override func viewWillAppear(_ animated: Bool) {
+        getSounds()
+    }
+    
+    func getSounds() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let tempSounds = try? context.fetch(Sound.fetchRequest()) as? [Sound] {
+                if let theSounds = tempSounds { //unwarpping
+                    sounds = theSounds
+                    tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+    //uncommented this one so we can put stuff in the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+            //+++marcel, reuseIdentifier has to be plugged in storyboard->table view cell->identifier
+        
         // Configure the cell...
-
+        let sound = sounds[indexPath.row] //get sound item from array and add to this cell
+        cell.textLabel?.text = sound.name
+        
         return cell
     }
-    */
-
+    
+    //+++add this one for when someone taps on our cell/row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sound = sounds[indexPath.row] //get sound item from array and add to this cell
+        if let audioData = sound.audioData { //unwrap
+            audioPlayer = try? AVAudioPlayer(data: audioData)
+            audioPlayer?.play()
+        }
+        tableView.deselectRow(at: indexPath, animated: true) //we deselect row to remove gray background
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

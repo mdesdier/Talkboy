@@ -89,7 +89,7 @@ class RecordViewController: UIViewController {
     @IBAction func AddHit(_ sender: Any) {
         //as always get context for core data
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let sound = Sound(entity: Sound.entity(), insertInto: context)
+            let sound = Sound(entity: Sound.entity(), insertInto: context) //Sound is name we gave to entity in xcdatamodeld
             sound.name = MessageText.text
             if let audioURL = self.audioURL {
                 sound.audioData = try? Data(contentsOf: audioURL)
